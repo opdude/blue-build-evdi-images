@@ -130,7 +130,7 @@ jobs:
         run: echo "${{ secrets.EVDI_SIGNING_KEY_PEM }}" > files/keys/evdi-signing-key.pem
       - name: Build Custom Image
         if: steps.check_image.outputs.should_build == 'true' || github.event_name != 'schedule'
-        uses: blue-build/github-action@v1.8
+        uses: blue-build/github-action@v1.9
         with:
           recipe: ${{ matrix.recipe }}
           cosign_private_key: ${{ secrets.SIGNING_SECRET }}
