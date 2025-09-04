@@ -39,7 +39,7 @@ jobs:
     steps:
       # the build is fully handled by the reusable github action
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       
       - name: Install skopeo for image checking
         run: |
