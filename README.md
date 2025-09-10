@@ -8,6 +8,10 @@ Adds DisplayLink EVDI support for enhanced multi-monitor setups to the Bazzite a
 - **Secure Boot Compatible**: EVDI module is properly signed for Secure Boot systems
 - **Automated Builds**: Daily builds with automatic stable tagging on main branch pushes
 
+### Aurora-DX Specific Features
+- **Kernel 6.14 Pinned**: Uses kernel 6.14 for compatibility with CrowdStrike Falcon sensor and other tools that require older kernel versions
+
+
 ## Installation
 
 > [!WARNING]  
@@ -67,6 +71,9 @@ sudo mokutil --import /etc/pki/DisplayLink/evdi-signing-key.der
 
 You will be prompted to set a password for MOK enrollment. After setting the password, reboot the system. During boot, you will see the MOK Manager screen. Select "Enroll MOK" and follow the prompts. Enter the password you set earlier to enroll the key. After this, the evdi module should load correctly.
 
+### Kernel Version
+
+The Aurora-DX image is configured to use kernel 6.14 instead of the latest available kernel. This provides compatibility with security tools like CrowdStrike Falcon sensor due to changes in BPF.
 ## Development
 
 ### Building Locally

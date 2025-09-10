@@ -1,0 +1,28 @@
+name: kernel-downgrade
+description: Downgrade kernel to a specific version for compatibility reasons
+author: local
+version: 1.0.0
+
+# Module type
+type: script
+
+# Default configuration
+defaultOptions:
+  target_kernel_version: "6.14"
+  remove_newer_kernels: true
+  exclude_packages: "kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-devel kernel-headers"
+
+# Required options schema
+options:
+  target_kernel_version:
+    type: string
+    description: Target kernel version to pin (e.g., "6.14")
+    required: false
+  remove_newer_kernels:
+    type: boolean
+    description: Whether to remove newer kernel packages
+    required: false
+  exclude_packages:
+    type: string
+    description: Space-separated list of kernel packages to exclude from updates
+    required: false

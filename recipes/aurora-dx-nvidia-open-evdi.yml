@@ -11,6 +11,13 @@ image-version: stable
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  # Downgrade kernel to 6.14.11 for CrowdStrike Falcon compatibility
+  - type: kernel-downgrade
+    source: local
+    options:
+      target_kernel_version: "6.14.11"
+      remove_newer_kernels: true
+
   - type: files
     files:
       - source: keys
